@@ -32,6 +32,17 @@
       object-fit: cover;
     }
 
+    .car-card .no-photo {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #cfcfcf;
+      color: #555;
+      font-weight: 600;
+    }
+
     .car-card h3 {
         font-size: 20px;
         margin-top: 10px;
@@ -114,7 +125,11 @@
       {% for car in cars %}
         <a href="{% url 'car_detail' car.pk %}">
           <div class="car-card">
-            <img src="{{ car.photo.url }}" alt="{{ car.model }} - {{ car.brand }}">
+            {% if car.photo %}
+              <img src="{{ car.photo.url }}" alt="{{ car.model }} - {{ car.brand }}">
+            {% else %}
+              <div class="no-photo">No image available</div>
+            {% endif %}
             <h2>{{ car.brand }} {{ car.model }}</h2>
             <p>{{ car.factory_year }} - R$ {{ car.value }}</p>
           </div>

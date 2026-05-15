@@ -26,6 +26,17 @@
       object-fit: cover;
     }
 
+    .car-card .no-photo {
+      width: 100%;
+      height: 200px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #cfcfcf;
+      color: #555;
+      font-weight: 600;
+    }
+
     .car-card h2 {
       font-size: 1.5rem;
       margin: 10px;
@@ -80,7 +91,11 @@
     }
   </style>
   <div class="car-card">
-      <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}">
+      {% if object.photo %}
+        <img src="{{ object.photo.url }}" alt="{{ object.model }} - {{ object.brand }}">
+      {% else %}
+        <div class="no-photo">No image available</div>
+      {% endif %}
       <h2>{{ object.brand }} {{ object.model }}</h2>
       <p><strong>Factory year:</strong> {{ object.factory_year }}</p>
       <p><strong>Model year:</strong> {{ object.model_year }}</p>
@@ -89,6 +104,7 @@
   </div>
   <div class="buttons-container">
     <a href="{% url 'car_update' pk=object.pk %}" class="btn btn-primary">Edit</a>
+    <a href="{% url 'car_delete' pk=object.pk %}" class="btn btn-danger">Delete</a>
   </div>
 
 {% endblock %}
