@@ -101,6 +101,9 @@
       <p><strong>Model year:</strong> {{ object.model_year }}</p>
       <p><strong>Plate:</strong> {{ object.plate }}</p>
       <p><strong>Price:</strong> R$ {{ object.value }}</p>
+      {% if object.description %}
+        <p><strong>Description:</strong> {{ object.description }}</p>
+      {% endif %}
   </div>
   {% if user.is_authenticated %}
     <div class="buttons-container">
