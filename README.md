@@ -4,7 +4,7 @@ This application is a car inventory management platform built with Python and Dj
 
 # Deployment Status
 
-The AWS EC2 instance previously available at http://<ec2-public-ip>/ has been taken offline to avoid ongoing infrastructure costs. The deployment configuration documented in this README file accurately reflects the production setup that was active during development and remains fully reproducible by following the local setup instructions.
+The application, previously available on an AWS EC2 instance, has been taken offline to avoid ongoing infrastructure costs. The deployment configuration documented in this README file accurately reflects the production setup that was active during development and remains fully reproducible by following the local setup instructions.
 
 # Architecture and System Design
 
@@ -74,7 +74,7 @@ Follow these steps to set up and run the application locally:
 
 1. Clone the project repository and navigate into the root directory:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/rickxyo/python-car-project.git
    cd python-car-project
    ```
 
